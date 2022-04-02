@@ -13,7 +13,36 @@ paths:
         - Tours
       summary: Get All Tours
       operationId: GetAllTours
-      parameters: []
+      description: To see all features, please go to my repository
+      parameters:
+        - name: page
+          in: query
+          required: false
+          description: Which page you want show?
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+        - name: limit
+          in: query
+          required: false
+          description: How many limit you want show?
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+        - name: fields
+          in: query
+          required: false
+          description: How many fields you want show? (ex - name,price,duration)
+          schema:
+            type: string
+        - name: sort
+          in: query
+          required: false
+          description: which field you want sort ? (default increase). To sort decrease, add "-" before that field
+          schema:
+            type: string
       responses:
         '200':
           description: ''
@@ -119,14 +148,7 @@ paths:
           headers: {}
       deprecated: false
       security: []
-  /tours/monthly-plan/{year}:
-    parameters:
-      - in: path
-        name: id
-        schema:
-          type: string
-        required: true
-        description: year
+  /tours/monthly-plan/2021:
     get:
       tags:
         - Tours
@@ -153,7 +175,20 @@ paths:
           headers: {}
       deprecated: false
       security: []
-  /tours/tour-within/400/center/34.111745,-118.113491/unit/mi:
+  /tours/tour-within/400/center/{latitude},{longitude}/unit/mi:
+    parameters:
+      - in: path
+        name: latitude
+        schema:
+          type: string
+        required: true
+        description: The latitude
+      - in: path
+        name: longitude
+        schema:
+          type: string
+        required: true
+        description: The longitude
     get:
       tags:
         - Tours
@@ -167,7 +202,20 @@ paths:
       deprecated: false
       security:
         - bearer: []
-  /tours/distances/34.111745,-118.113491/unit/mi:
+  /tours/distances/{latitude},{longitude}/unit/mi:
+    parameters:
+      - in: path
+        name: latitude
+        schema:
+          type: string
+        required: true
+        description: The latitude
+      - in: path
+        name: longitude
+        schema:
+          type: string
+        required: true
+        description: The longitude
     get:
       tags:
         - Tours
