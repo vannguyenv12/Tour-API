@@ -1,0 +1,777 @@
+openapi: 3.0.0
+info:
+  title: Tour API
+  contact: {}
+  version: '1.0'
+servers:
+  - url: https://vannguyen-tours.herokuapp.com/api/v1
+    variables: {}
+paths:
+  /tours:
+    get:
+      tags:
+        - Tours
+      summary: Get All Tours
+      operationId: GetAllTours
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+    post:
+      tags:
+        - Tours
+      summary: Create New Tour
+      operationId: CreateNewTour
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateNewTourRequest'
+            example:
+              name: Vung Tau Sea
+              duration: 200
+              maxGroupSize: 3
+              difficulty: easy
+              price: 1000
+              summary: This tour is great
+              imageCover: /img/test
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /tours/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The tour ID
+    delete:
+      tags:
+        - Tours
+      summary: Delete Tour
+      operationId: DeleteTour
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    get:
+      tags:
+        - Tours
+      summary: Get Tour
+      operationId: GetTour
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+
+    patch:
+      tags:
+        - Tours
+      summary: Update Tour
+      operationId: UpdateTour
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateTourRequest'
+            example:
+              difficulty: easy
+              ratingsAverage: 5
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /tours/top-5-cheap:
+    get:
+      tags:
+        - Tours
+      summary: Top 5 Cheap
+      operationId: Top5Cheap
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /tours/monthly-plan/2021:
+    get:
+      tags:
+        - Tours
+      summary: Plan
+      operationId: Plan
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /tours/tour-stats:
+    get:
+      tags:
+        - Tours
+      summary: Tour Stats
+      operationId: TourStats
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /tours/tour-within/400/center/34.111745,-118.113491/unit/mi:
+    get:
+      tags:
+        - Tours
+      summary: Get Tour within radius
+      operationId: GetTourwithinradius
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /tours/distances/34.111745,-118.113491/unit/mi:
+    get:
+      tags:
+        - Tours
+      summary: Get Distance From Point
+      operationId: GetDistanceFromPoint
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /users:
+    get:
+      tags:
+        - User
+      summary: Get All Users
+      operationId: GetAllUsers
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /users/updateMe:
+    patch:
+      tags:
+        - User
+      summary: Update Me
+      operationId: UpdateMe
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMeRequest'
+            example:
+              name: Administrator
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /users/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The user ID
+    delete:
+      tags:
+        - User
+      summary: Delete User
+      operationId: DeleteUser
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    get:
+      tags:
+        - User
+      summary: Get User
+      operationId: GetUser
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+
+    patch:
+      tags:
+        - User
+      summary: Update With ID
+      operationId: UpdateWithID
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateWithIDRequest'
+            example:
+              role: admin
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /users/me:
+    get:
+      tags:
+        - User
+      summary: Get Current User
+      operationId: GetCurrentUser
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /users/signup:
+    post:
+      tags:
+        - Authentication
+      summary: Create New User
+      operationId: CreateNewUser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateNewUserRequest'
+            example:
+              name: username
+              email: uesrname@vannguyen.io
+              password: pass123456
+              passwordConfirm: pass123456
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /users/login:
+    post:
+      tags:
+        - Authentication
+      summary: Login User
+      operationId: LoginUser
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginUserRequest'
+            example:
+              email: username@vannguyen.io
+              password: pass123456
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /users/forgotPassword:
+    post:
+      tags:
+        - Authentication
+      summary: Forgot Password
+      operationId: ForgotPassword
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ForgotPasswordRequest'
+            example:
+              email: test@vannguyen.io
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /users/updateMyPassword:
+    patch:
+      tags:
+        - Authentication
+      summary: Update Password
+      operationId: UpdatePassword
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdatePasswordRequest'
+            example:
+              passwordCurrent: newpass123456
+              password: pass123456
+              passwordConfirm: pass123456
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /resetPassword/{token}:
+    parameters:
+      - in: path
+        name: token
+        schema:
+          type: string
+        required: true
+        description: The token
+    patch:
+      tags:
+        - Authentication
+      summary: Reset Password
+      operationId: ResetPassword
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResetPasswordRequest'
+            example:
+              password: pass12345
+              passwordConfirm: pass12345
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+  /users/deleteMe:
+    delete:
+      tags:
+        - Authentication
+      summary: Delete
+      operationId: Delete
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /reviews:
+    post:
+      tags:
+        - Reviews
+      summary: Create New Review
+      operationId: CreateNewReview
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateNewReviewRequest'
+            example:
+              review: Admin handsome
+              rating: 5
+              user: 61d25dbcba771c0140155743
+              tour: 5c88fa8cf4afda39709c2955
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+    get:
+      tags:
+        - Reviews
+      summary: Get All Reviews
+      operationId: GetAllReviews
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+  /reviews/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The review ID
+    patch:
+      tags:
+        - Reviews
+      summary: Update Review
+      operationId: UpdateReview
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateReviewRequest'
+            example:
+              review: Everything is really greate
+              rating: 5
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+
+    get:
+      tags:
+        - Reviews
+      summary: Get Review
+      operationId: GetReview
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+
+    delete:
+      tags:
+        - Reviews
+      summary: Delete Review
+      operationId: DeleteReview
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+  /tours/{tourId}/reviews:
+    parameters:
+      - in: path
+        name: tourId
+        schema:
+          type: string
+        required: true
+        description: The tour ID
+    post:
+      tags:
+        - Reviews/Tours
+      summary: Create Review With Tour
+      operationId: CreateReviewWithTour
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateReviewWithTourRequest'
+            example:
+              review: This is the best tour!!
+              rating: 4.7
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+        - bearer: []
+
+    get:
+      tags:
+        - Reviews/Tours
+      summary: Get All Reviews on Tour
+      operationId: GetAllReviewsonTour
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+components:
+  schemas:
+    CreateNewTourRequest:
+      title: CreateNewTourRequest
+      required:
+        - name
+        - duration
+        - maxGroupSize
+        - difficulty
+        - price
+        - summary
+        - imageCover
+      type: object
+      properties:
+        name:
+          type: string
+        duration:
+          type: integer
+          format: int32
+        maxGroupSize:
+          type: integer
+          format: int32
+        difficulty:
+          type: string
+        price:
+          type: integer
+          format: int32
+        summary:
+          type: string
+        imageCover:
+          type: string
+      example:
+        name: Vung Tau Sea
+        duration: 200
+        maxGroupSize: 3
+        difficulty: easy
+        price: 1000
+        summary: This tour is great
+        imageCover: /img/test
+    UpdateTourRequest:
+      title: UpdateTourRequest
+      required:
+        - difficulty
+        - ratingsAverage
+      type: object
+      properties:
+        difficulty:
+          type: string
+        ratingsAverage:
+          type: integer
+          format: int32
+      example:
+        difficulty: easy
+        ratingsAverage: 5
+    UpdateMeRequest:
+      title: UpdateMeRequest
+      required:
+        - name
+      type: object
+      properties:
+        name:
+          type: string
+      example:
+        name: Administrator
+    UpdateWithIDRequest:
+      title: UpdateWithIDRequest
+      required:
+        - role
+      type: object
+      properties:
+        role:
+          type: string
+      example:
+        role: admin
+    CreateNewUserRequest:
+      title: CreateNewUserRequest
+      required:
+        - name
+        - email
+        - password
+        - passwordConfirm
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+        password:
+          type: string
+        passwordConfirm:
+          type: string
+      example:
+        name: username
+        email: uesrname@vannguyen.io
+        password: pass123456
+        passwordConfirm: pass123456
+    LoginUserRequest:
+      title: LoginUserRequest
+      required:
+        - email
+        - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: username@vannguyen.io
+        password: pass123456
+    ForgotPasswordRequest:
+      title: ForgotPasswordRequest
+      required:
+        - email
+      type: object
+      properties:
+        email:
+          type: string
+      example:
+        email: test@vannguyen.io
+    UpdatePasswordRequest:
+      title: UpdatePasswordRequest
+      required:
+        - passwordCurrent
+        - password
+        - passwordConfirm
+      type: object
+      properties:
+        passwordCurrent:
+          type: string
+        password:
+          type: string
+        passwordConfirm:
+          type: string
+      example:
+        passwordCurrent: newpass123456
+        password: pass123456
+        passwordConfirm: pass123456
+    ResetPasswordRequest:
+      title: ResetPasswordRequest
+      required:
+        - password
+        - passwordConfirm
+      type: object
+      properties:
+        password:
+          type: string
+        passwordConfirm:
+          type: string
+      example:
+        password: pass12345
+        passwordConfirm: pass12345
+    CreateNewReviewRequest:
+      title: CreateNewReviewRequest
+      required:
+        - review
+        - rating
+        - user
+        - tour
+      type: object
+      properties:
+        review:
+          type: string
+        rating:
+          type: integer
+          format: int32
+        user:
+          type: string
+        tour:
+          type: string
+      example:
+        review: Admin handsome
+        rating: 5
+        user: 61d25dbcba771c0140155743
+        tour: 5c88fa8cf4afda39709c2955
+    UpdateReviewRequest:
+      title: UpdateReviewRequest
+      required:
+        - review
+        - rating
+      type: object
+      properties:
+        review:
+          type: string
+        rating:
+          type: integer
+          format: int32
+      example:
+        review: Everything is really greate
+        rating: 5
+    CreateReviewWithTourRequest:
+      title: CreateReviewWithTourRequest
+      required:
+        - review
+        - rating
+      type: object
+      properties:
+        review:
+          type: string
+        rating:
+          type: number
+      example:
+        review: This is the best tour!!
+        rating: 4.7
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security: []
+tags:
+  - name: Tours
+  - name: User
+  - name: Authentication
+  - name: Reviews
+  - name: Reviews/Tours

@@ -50,11 +50,22 @@ app.use(
   })
 );
 
+// SWAGGER UI
+const swaggerUI = require('swagger-ui-express');
+const YAML = require('yamljs');
+const swaggerDocument = YAML.load('./swagger.yaml');
+
 // Router
 app.use('/api/v1/reviews', reviewRoutes);
 app.use('/api/v1/tours', tourRoutes);
 app.use('/api/v1/users', userRoutes);
 
+app.get('/', (req, res) => {
+  res.status(200).json({ message: 'Please use /api-docs' });
+});
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+
+// Handle not route
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`), 404);
 });
