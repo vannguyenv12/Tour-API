@@ -119,7 +119,14 @@ paths:
           headers: {}
       deprecated: false
       security: []
-  /tours/monthly-plan/2021:
+  /tours/monthly-plan/{year}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: year
     get:
       tags:
         - Tours
