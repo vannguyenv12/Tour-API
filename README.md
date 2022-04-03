@@ -10,7 +10,8 @@
 
 ![image](https://user-images.githubusercontent.com/88303019/161365307-06834ec3-e058-4ccd-9a95-ede49a0fee5c.png)
 
-- Nhiều tính năng hơn nữa như: có bao nhiêu tours được khởi hành trong một năm, hay tìm tour theo tọa độ
+- Nhiều tính năng hơn nữa như: có bao nhiêu tours được khởi hành trong một năm
+- Chức năng rating, review tour
 - Sử dụng JWT để làm authentication/authorization, có forgot password và reset password
 - Tạo review cho tour (nested param)
 
