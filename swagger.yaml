@@ -139,7 +139,7 @@ paths:
     get:
       tags:
         - Tours
-      summary: Top 5 Cheap
+      summary: Top 5 Tours Cheap
       operationId: Top5Cheap
       parameters: []
       responses:
@@ -148,7 +148,14 @@ paths:
           headers: {}
       deprecated: false
       security: []
-  /tours/monthly-plan/2021:
+  /tours/monthly-plan/{year}:
+    parameters:
+      - in: path
+        name: year
+        schema:
+          type: string
+        required: true
+        description: year
     get:
       tags:
         - Tours
@@ -175,60 +182,6 @@ paths:
           headers: {}
       deprecated: false
       security: []
-  /tours/tour-within/400/center/{latitude},{longitude}/unit/mi:
-    parameters:
-      - in: path
-        name: latitude
-        schema:
-          type: string
-        required: true
-        description: The latitude
-      - in: path
-        name: longitude
-        schema:
-          type: string
-        required: true
-        description: The longitude
-    get:
-      tags:
-        - Tours
-      summary: Get Tour within radius
-      operationId: GetTourwithinradius
-      parameters: []
-      responses:
-        '200':
-          description: ''
-          headers: {}
-      deprecated: false
-      security:
-        - bearer: []
-  /tours/distances/{latitude},{longitude}/unit/mi:
-    parameters:
-      - in: path
-        name: latitude
-        schema:
-          type: string
-        required: true
-        description: The latitude
-      - in: path
-        name: longitude
-        schema:
-          type: string
-        required: true
-        description: The longitude
-    get:
-      tags:
-        - Tours
-      summary: Get Distance From Point
-      operationId: GetDistanceFromPoint
-      parameters: []
-      responses:
-        '200':
-          description: ''
-          headers: {}
-      deprecated: false
-      security:
-        - bearer: []
   /users:
     get:
       tags:
