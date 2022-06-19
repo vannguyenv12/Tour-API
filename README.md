@@ -20,6 +20,13 @@
 | `[gte]` | `>=` | /api/v1/tours?price[gte]=100 |
 | `[ne]` | `!=` | /api/v1/tours?price[ne]=100 |
 
+| Toán tử | Nghĩa thật     | Cách dùng                |
+| :-------- | :------- | :------------------------- |
+| `field` | Chỉ định các fields muốn response | /api/v1/tours?field=name,price |
+| `limit` | Chỉ định limit cho mỗi page | /api/v1/tours?limit=10 |
+| `page` | Chỉ định page| /api/v1/tours?page=2 |
+
+
 - Nhiều tính năng hơn nữa như: có bao nhiêu tours được khởi hành trong một năm
 - Chức năng rating, review tour
 - Sử dụng JWT để làm authentication/authorization, có forgot password và reset password
