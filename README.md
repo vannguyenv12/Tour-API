@@ -1,6 +1,5 @@
 # I. Giới thiệu về Tour API
-- Project sử dụng JavaScript, ExpressJS, MongoDB
-- Tổ chức chuẩn theo MVC pattern
+- Project sử dụng JavaScript, Nodejs(expressJS), MongoDB (mongoose)
 - API docs (sử dụng swagger): https://vannguyen-tours.herokuapp.com/api-docs
 
 ### Số lượng thành viên tham gia dự án: 1
