@@ -23,7 +23,9 @@
 | :-------- | :------- | :------------------------- |
 | `field` | Chỉ định các fields muốn response | /api/v1/tours?field=name,price |
 | `limit` | Chỉ định limit cho mỗi page | /api/v1/tours?limit=10 |
-| `page` | Chỉ định page| /api/v1/tours?page=2 |
+| `page` | Chỉ định page | /api/v1/tours?page=2 |
+| `sort=field` | Sắp xếp cho field nào đó tăng dần | /api/v1/tours?sort=price |
+| `sort=-field` | Sắp xếp cho field nào đó giảm dần | /api/v1/tours?sort=-price |
 
 
 - Nhiều tính năng hơn nữa như: có bao nhiêu tours được khởi hành trong một năm
